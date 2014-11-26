@@ -9,7 +9,7 @@ package Auxiliares;
  *
  * @author Felipe
  */
-public class Posicao {
+public class Posicao implements Comparable<Posicao>{
     public static final float ALTURA = 600;
     public static final int ALTURA_EM_TILES = 6;
     public static final int LARGURA_EM_TILES = 8;
@@ -99,5 +99,14 @@ public class Posicao {
     @Override
     public String toString() {
         return "Tile(x,y) = (" + tileX + "," + tileY + ") Real(x,y) = (" + realX + "," + realY + ")";
+    }
+
+    @Override
+    public int compareTo(Posicao o) {
+        if (o.getRealX() > this.realX)
+            return -1;
+        if (o.getRealX() == this.realX)
+            return 0;
+        return  -1;
     }
 }
