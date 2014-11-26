@@ -103,9 +103,9 @@ public class Posicao implements Comparable<Posicao>{
 
     @Override
     public int compareTo(Posicao o) {
-        if (o.getRealX() > this.realX)
+        if (o.getRealY() > this.realX)
             return -1;
-        if (o.getRealX() == this.realX)
+        if (o.getRealY() == this.realX)
             return 0;
         return  -1;
     }
