@@ -72,4 +72,17 @@ public class Repeater extends Planta implements Atacante{
         return deveAtacar;
     }
     
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Repeater) {
+            if (this.getPosicao().equals(((Repeater)o).getPosicao()))
+                return true;
+        }
+        return false;
+    }
+    
+    @Override
+    public String toString() {
+        return "Repeater";
+    }
 }

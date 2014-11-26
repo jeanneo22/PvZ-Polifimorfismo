@@ -29,4 +29,17 @@ public class WallNut extends Planta {
     public void notificarMorreuZumbi() {
     }
     
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof WallNut) {
+            if (this.getPosicao().equals(((WallNut)o).getPosicao()))
+                return true;
+        }
+        return false;
+    }
+    
+    @Override
+    public String toString() {
+        return "WallNut";
+    }
 }

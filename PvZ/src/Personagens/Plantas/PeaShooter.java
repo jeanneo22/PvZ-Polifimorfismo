@@ -65,4 +65,17 @@ public class PeaShooter extends Planta implements Atacante {
         return deveAtacar;
     }
     
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof PeaShooter) {
+            if (this.getPosicao().equals(((PeaShooter)o).getPosicao()))
+                return true;
+        }
+        return false;
+    }
+    
+    @Override
+    public String toString() {
+        return "Peashoter";
+    }
 }

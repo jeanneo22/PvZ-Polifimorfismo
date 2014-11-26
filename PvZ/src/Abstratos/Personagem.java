@@ -38,6 +38,15 @@ public abstract class Personagem implements GameObject{
         this(SpriteStore.get().getSprite("Sprites/peashooter.jpg"), new Posicao(true, 0, 0), 100, 5);
     }
     
+    public Personagem(Personagem copia) {
+        this.posicao = copia.posicao;
+        this.sprite = copia.sprite;
+        this.vidaMaxima = copia.vidaMaxima;
+        this.vidaAtual = copia.vidaAtual;
+        this.velocidadeAtaque = copia.velocidadeAtaque;
+        this.tempoUltimoAtaque = copia.tempoUltimoAtaque;
+    }
+    
     @Override
     public void desenhar(Graphics2D graficos) {
         getSprite().desenhar(graficos, (int)getPosicao().getRealX(), (int)getPosicao().getRealY());
@@ -103,5 +112,10 @@ public abstract class Personagem implements GameObject{
 
     public void setTempoUltimoAtaque(long tempoUltimoAtaque) {
         this.tempoUltimoAtaque = tempoUltimoAtaque;
+    }
+    
+    @Override
+    public String toString() {
+        return "Personagem";
     }
 }

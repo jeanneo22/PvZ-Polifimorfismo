@@ -23,7 +23,13 @@ public class Zumbi extends Personagem implements Colidivel, Atacante{
     private float velocidadeMovimento;
     private boolean deveAtacar;
     
-   
+   public Zumbi(Zumbi copia) {
+       super(copia);
+       this.atacando = copia.atacando;
+       this.velocidadeMovimento = copia.velocidadeMovimento;
+       this.deveAtacar = copia.deveAtacar;
+       
+   }
     
     public Zumbi(TipoZumbi tipo, Posicao posicao) {
         super(tipo.getSprite(),posicao, tipo.getResistenciaDano(), tipo.getVelocidadeAtaque());
@@ -112,4 +118,17 @@ public class Zumbi extends Personagem implements Colidivel, Atacante{
         return deveAtacar;
     }
     
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Zumbi) {
+            if (this.getPosicao().equals(((Zumbi)o).getPosicao()))
+                return true;
+        }
+        return false;
+    }
+    
+    @Override
+    public String toString() {
+        return "Zumbi";
+    }
 }

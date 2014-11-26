@@ -54,6 +54,7 @@ public abstract class Projetil implements GameObject, Colidivel{
         this.dano = dano;
     }
 
+    @Override
     public Sprite getSprite() {
         return sprite;
     }
@@ -62,11 +63,26 @@ public abstract class Projetil implements GameObject, Colidivel{
         this.sprite = sprite;
     }
 
+    @Override
     public Posicao getPosicao() {
         return posicao;
     }
 
     public void setPosicao(Posicao posicao) {
         this.posicao = posicao;
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Projetil) {
+            if (this.getPosicao().equals(((Projetil)o).getPosicao()))
+                return true;
+        }
+        return false;
+    }
+    
+    @Override
+    public String toString() {
+        return "Projetil";
     }
 }

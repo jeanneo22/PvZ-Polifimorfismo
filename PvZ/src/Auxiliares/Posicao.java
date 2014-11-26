@@ -86,4 +86,18 @@ public class Posicao {
     public void setRealY(float realY) {
         this.realY = realY;
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Posicao) {
+            if (this.realX == ((Posicao)o).realX && this.realY == ((Posicao)o).realY)
+                return true;
+        }
+        return false;
+    }
+    
+    @Override
+    public String toString() {
+        return "Tile(x,y) = (" + tileX + "," + tileY + ") Real(x,y) = (" + realX + "," + realY + ")";
+    }
 }

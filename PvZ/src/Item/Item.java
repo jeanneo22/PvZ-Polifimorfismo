@@ -53,4 +53,9 @@ public abstract class Item {
     public void setPodeUsar(boolean podeUsar) {
         this.podeUsar = podeUsar;
     }
+    
+    @Override
+    public String toString() {
+        return "Item CD" + cooldown + " Pronto para usar?" + podeUsar;
+    }
 }
