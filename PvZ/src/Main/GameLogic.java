@@ -12,6 +12,7 @@ import Personagens.Plantas.PlantaFactory;
 import Personagens.Plantas.TipoPlanta;
 import Personagens.Zumbis.TipoZumbi;
 import Personagens.Zumbis.Zumbi;
+import Personagens.Zumbis.ZumbiFactory;
 import Projetil.Projetil;
 import java.awt.Canvas;
 import java.awt.Color;
@@ -148,7 +149,7 @@ public class GameLogic extends Canvas{
         }
         Random gerador = new Random();
         int numeroAleatorio = gerador.nextInt(Posicao.ALTURA_EM_TILES);
-        addEntidade(new Zumbi(TipoZumbi.Zumbi,new Posicao(true,8,numeroAleatorio)));
+        addEntidade(ZumbiFactory.criarZumbi(TipoZumbi.Zumbi,new Posicao(true,8,numeroAleatorio)));
         quantidadeZumbisFileira[numeroAleatorio]++;
         tempoNascimentoZumbi = Math.max(tempoNascimentoZumbi-100, 2000);
         tempoNascimentoUltimoZumbi = System.currentTimeMillis();

@@ -85,4 +85,5 @@ public abstract class Projetil implements GameObject, Colidivel{
     public String toString() {
         return "Projetil";
     }
+    
 }

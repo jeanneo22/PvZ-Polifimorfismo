@@ -39,4 +39,9 @@ public abstract class Planta extends Personagem {
             }
         }
     }
+    
+    @Override
+    public String toString() {
+        return "Planta";
+    }
 }
