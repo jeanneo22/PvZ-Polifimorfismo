@@ -12,9 +12,13 @@ import Auxiliares.Posicao;
  * @author Felipe
  */
 public class ZumbiFactory {
+    public static int zumbisCriados = 0;
+    
     public static Zumbi criarZumbi(TipoZumbi tipo, Posicao posicao) {
-        if (tipo == TipoZumbi.Zumbi)
+        if (tipo == TipoZumbi.Zumbi) {
+            zumbisCriados++;
             return new Zumbi(tipo, posicao);
+        }
         return null;
     }
 }

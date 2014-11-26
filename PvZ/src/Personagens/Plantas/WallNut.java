@@ -14,12 +14,14 @@ import Auxiliares.SpriteStore;
  */
 public class WallNut extends Planta {
     
+    private static final int VIDA_MAXIMA = 400;
+    
     public  WallNut (Posicao posicao) {
-        super(SpriteStore.get().getSprite("Sprites/wallnut.jpg"), posicao, 300, 0);
+        super(SpriteStore.get().getSprite("Sprites/wallnut.jpg"), posicao, VIDA_MAXIMA, 0);
     }
     
     public  WallNut () {
-        super(SpriteStore.get().getSprite("Sprites/wallnut.jpg"), new Posicao(true, 0, 0), 300, 0);
+        super(SpriteStore.get().getSprite("Sprites/wallnut.jpg"), new Posicao(true, 0, 0), VIDA_MAXIMA, 0);
     }
     @Override
     public void notificarZumbiNasceu() { 
