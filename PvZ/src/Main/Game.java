@@ -3,14 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces;
+package Main;
 
 /**
  *
  * @author Felipe
  */
-public interface Atacante {
-    public void atacar();
+public class Game {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        GameLogic.getInstance().gameLoop();
+    }
     
-    public boolean deveAtacar();
 }

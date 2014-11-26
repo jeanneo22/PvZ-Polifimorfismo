@@ -3,25 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Personagens;
+package Abstratos;
 
 import Auxiliares.Posicao;
 import Auxiliares.Sprite;
 import Auxiliares.SpriteStore;
-import Interfaces.GameObject;
+import Abstratos.GameObject;
+import Main.GameLogic;
 import java.awt.Graphics2D;
+import jdk.nashorn.internal.parser.TokenType;
 
 /**
  *
  * @author Felipe
  */
 public abstract class Personagem implements GameObject{
-    private Posicao posicao;
-    private Sprite sprite;
-    private int vidaMaxima;
-    private int vidaAtual;
-    private int velocidadeAtaque;
-    private long tempoUltimoAtaque;
+    protected Posicao posicao;
+    protected Sprite sprite;
+    protected int vidaMaxima;
+    protected int vidaAtual;
+    protected int velocidadeAtaque;
+    protected long tempoUltimoAtaque;
     
     public Personagem(Sprite sprite, Posicao posicao,int vidaMaxima, int velocidadeAtaque) {
         this.sprite = sprite;
@@ -33,7 +35,7 @@ public abstract class Personagem implements GameObject{
     }
     
     public Personagem() {
-        this(SpriteStore.get().getSprite("pvz/sprites/pea.jpg"), new Posicao(true, 0, 0), 100, 5);
+        this(SpriteStore.get().getSprite("Sprites/peashooter.jpg"), new Posicao(true, 0, 0), 100, 5);
     }
     
     @Override
@@ -45,6 +47,14 @@ public abstract class Personagem implements GameObject{
         return getVidaAtual() < 0;
     }
 
+    @Override
+    public void update(long delta) {
+        if (checarMorreu()) {
+           GameLogic.getInstance().removeEntidade(this);
+            return; 
+        }
+    }
+    
     @Override
     public Posicao getPosicao() {
         return posicao;

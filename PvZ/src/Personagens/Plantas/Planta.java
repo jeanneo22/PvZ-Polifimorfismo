@@ -3,10 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Personagens;
+package Personagens.Plantas;
 
 import Auxiliares.Posicao;
 import Auxiliares.Sprite;
+import Abstratos.Atacante;
+import Main.GameLogic;
+import Abstratos.Personagem;
+import Personagens.Zumbis.Zumbi;
 
 /**
  *
@@ -22,17 +26,17 @@ public abstract class Planta extends Personagem {
         super();
     }
     
-    @Override
-    public void update(long delta) {
-        checarMorreu();
-    }
-    
     public abstract void notificarZumbiNasceu();
     
     public abstract void notificarMorreuZumbi();
     
-    public void notificarLevouDano(int dano) {
-        this.setVidaAtual(this.getVidaAtual() - dano);
-        checarMorreu();
+    public void notificarLevouDano(Atacante a, int dano) {
+        this.vidaAtual -= dano;
+        if (checarMorreu()) {
+            GameLogic.getInstance().removeEntidade(this);
+            if (a instanceof Zumbi) {
+                ((Zumbi)a).notificarAtacadoMorreu();
+            }
+        }
     }
 }

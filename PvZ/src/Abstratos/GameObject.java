@@ -3,19 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces;
+package Abstratos;
 
 import Auxiliares.Posicao;
 import Auxiliares.Sprite;
+import java.awt.Graphics2D;
 
 /**
  *
  * @author Felipe
  */
-public interface Colidivel {
-    public boolean estaColidindoCom(Colidivel outro);
+public interface GameObject {
+    public void update(long delta);
     
-    public void colidiuCom(Colidivel outro);
+    public void desenhar(Graphics2D g);
     
     public Sprite getSprite();
     

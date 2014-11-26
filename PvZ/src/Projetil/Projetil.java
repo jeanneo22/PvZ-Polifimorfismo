@@ -7,8 +7,8 @@ package Projetil;
 
 import Auxiliares.Posicao;
 import Auxiliares.Sprite;
-import Interfaces.Colidivel;
-import Interfaces.GameObject;
+import Abstratos.Colidivel;
+import Abstratos.GameObject;
 import java.awt.Graphics2D;
 
 /**
@@ -16,12 +16,12 @@ import java.awt.Graphics2D;
  * @author Felipe
  */
 public abstract class Projetil implements GameObject, Colidivel{
-    private int velocidadeMovimento;
-    private int dano;
-    private Sprite sprite;
-    private Posicao posicao;
+    protected float velocidadeMovimento;
+    protected int dano;
+    protected Sprite sprite;
+    protected Posicao posicao;
     
-    public Projetil(int velocidade,int dano, Sprite sprite, Posicao posicao) {
+    public Projetil(float velocidade,int dano, Sprite sprite, Posicao posicao) {
         this.velocidadeMovimento = Math.min(100, Math.max(velocidade,0));
         this.dano = Math.min(100, Math.max(dano,0));
         this.sprite = sprite;
@@ -38,11 +38,11 @@ public abstract class Projetil implements GameObject, Colidivel{
         this.posicao.setRealX(this.posicao.getRealX() + velocidadeMovimento * delta);
     }
 
-    public int getVelocidadeMovimento() {
+    public float getVelocidadeMovimento() {
         return velocidadeMovimento;
     }
 
-    public void setVelocidadeMovimento(int velocidadeMovimento) {
+    public void setVelocidadeMovimento(float velocidadeMovimento) {
         this.velocidadeMovimento = velocidadeMovimento;
     }
 
